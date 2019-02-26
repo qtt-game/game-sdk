@@ -1,0 +1,16 @@
+@startuml
+
+游戏后台   -> SDK后台 :获取app_id、app_key(/x/open/test/game/config 接口 仅测试环境)
+SDK后台   -> 游戏后台 :返回app_id、app_key(服务端保存配置，测试完成后发送给商务)
+趣头条APP -> SDK后台  :获取游戏跳转地址
+SDK后台   -> 趣头条APP :后台返回游戏跳转URL
+趣头条APP -> 游戏前端   :APP跳转进入游戏
+游戏前端  -> 游戏后台   :获取用户信息
+游戏后台  -> SDK后台   :获取用户信息(/x/open/user/ticket接口)
+SDK后台  -> 游戏后台   :返回用户信息
+游戏前端 -> SDK支付    :游戏前端发起支付
+SDK支付 -> SDK后台    :发起支付请求
+SDK后台 -> 游戏后台    :通知支付结果(游戏厂商提供的notifyUrl)
+游戏后台 -> SDK后台    :充值结果查询 (/x/pay/union/order/query)
+SDK后台 -> 游戏后台    :返回充值结果 
+@enduml
