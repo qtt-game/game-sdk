@@ -1,7 +1,5 @@
 @startuml
-
-游戏后台   -> SDK后台 :获取app_id、app_key(/x/open/test/game/config 接口 仅测试环境)
-SDK后台   -> 游戏后台 :返回app_id、app_key(服务端保存配置，测试完成后发送给商务)
+SDK后台   -> 游戏后台 :获取app_id、app_key(服务端保存配置,将游戏地址、app_id、app_key 交给商务配置正式环境跳转)
 趣头条APP -> SDK后台  :获取游戏跳转地址
 SDK后台   -> 趣头条APP :后台返回游戏跳转URL
 趣头条APP -> 游戏前端   :APP跳转进入游戏
