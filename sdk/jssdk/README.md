@@ -2,7 +2,8 @@
 
 获取用户信息
 ```js
-const QTTGame = require("./jssdk-1.0.0");
+const QTTGame = require("./dist/jssdk-1.0.0");
+
 var appkey = "xxx";
 var app_id = "xxx";
 var platform = "xxx";
@@ -15,7 +16,8 @@ QTTGame.getUserInfo(appkey, app_id, ticket, platform).then(res => {
 ```
 查询订单状态
 ```js
-const QTTGame = require("./jssdk-1.0.0");
+const QTTGame = require("./dist/jssdk-1.0.0");
+
 var appkey = "xxx";
 var app_id = "xxx";
 var open_id = "xxx";
