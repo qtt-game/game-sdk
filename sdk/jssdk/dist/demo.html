@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <script src="./jssdk.js"></script>
+    <title>JSSDK</title>
+</head>
+
+<body>
+    <h1>Demo</h1>
+    <button onclick="getUserInfo()" type="button" style="width:100%;height:50px;margin-top:10px">
+        getUserInfo
+    </button>
+    <button onclick="queryOrder()" type="button" style="width:100%;height:50px;margin-top:10px">
+        queryOrder
+    </button>
+    </br></br>
+    输出：
+    <pre id="output" style="white-space: pre-wrap;word-wrap: break-word;"></pre>
+    <script>
+
+        function getUserInfo() {
+            document.getElementById("output").innerHTML = "";
+            var appkey = "xxx";
+            var app_id = "xxx";
+            var platform = "xxx";
+            var ticket = "XXX";
+            QTTGame.getUserInfo(appkey, app_id, ticket, platform).then(res => {
+                document.getElementById("output").innerHTML = JSON.stringify(res)
+            }).catch(err => {
+                document.getElementById("output").innerHTML = JSON.stringify(err)
+            })
+        }
+
+        function queryOrder() {
+            document.getElementById("output").innerHTML = "";
+            var appkey = "xxx";
+            var app_id = "xxx";
+            var open_id = "xxx";
+            var trade_no = "xxx";
+            QTTGame.queryOrder(appkey, app_id, open_id, trade_no).then(res => {
+                document.getElementById("output").innerHTML = JSON.stringify(res)
+            }).catch(err => {
+                document.getElementById("output").innerHTML = JSON.stringify(err)
+            })
+        }
+
+    </script>
+</body>
+
+</html>
