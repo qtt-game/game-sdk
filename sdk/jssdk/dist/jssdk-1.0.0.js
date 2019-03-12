@@ -1,5 +1,14 @@
-var QTTGame =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["QTTGame"] = factory();
+	else
+		root["QTTGame"] = factory();
+})(typeof self !== 'undefined' ? self : this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -1033,7 +1042,10 @@ function getUserInfo(appkey, app_id, ticket, platform) {
     var time = Math.floor(Date.now() / 1000);
     var sign = (0, _sign.genSign)({ app_id: app_id, platform: platform, ticket: ticket, time: time }, appkey);
     return (0, _http.get)(url, { params: { app_id: app_id, platform: platform, ticket: ticket, time: time, sign: sign } }).then(function (res) {
-        return res.data;
+        if (res && res.data && res.data.code == 0) {
+            return res.data;
+        }
+        throw res.data;
     });
 }
 
@@ -1042,7 +1054,10 @@ function queryOrder(appkey, app_id, open_id, trade_no) {
     var time = Math.floor(Date.now() / 1000);
     var sign = (0, _sign.genSign)({ trade_no: trade_no, app_id: app_id, open_id: open_id, time: time }, appkey);
     return (0, _http.get)(url, { params: { trade_no: trade_no, app_id: app_id, open_id: open_id, time: time, sign: sign } }).then(function (res) {
-        return res.data;
+        if (res && res.data && res.data.code == 0) {
+            return res.data;
+        }
+        throw res.data;
     });
 }
 
@@ -2235,4 +2250,5 @@ module.exports = function spread(callback) {
 
 /***/ })
 /******/ ]);
+});
 //# sourceMappingURL=jssdk-1.0.0.js.map

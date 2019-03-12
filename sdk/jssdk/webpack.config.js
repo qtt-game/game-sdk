@@ -9,7 +9,7 @@ const config = {
         publicPath: '/dist/',
         filename: `jssdk-${package.version}.js`,
         library: 'QTTGame',
-        libraryTarget: 'var',
+        libraryTarget: 'umd',
     },
     externals: {
     },
