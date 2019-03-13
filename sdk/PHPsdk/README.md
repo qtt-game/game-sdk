@@ -31,7 +31,8 @@ $sign = $obj->getSign($params);
 
 ```php 
 $obj = new QttGame\GameCenter($app_id, $app_key);
-$result = $obj->getUserInfo($ticket, $platform);
+//$timeout 请求超时时间设置，单位 秒,可以不传，默认 1 秒
+$result = $obj->getUserInfo($ticket, $platform, $timeout);
 ```
 
 $result 返回示例
@@ -54,7 +55,8 @@ $result 返回示例
 
 ```php
 $obj = new QttGame\GameCenter($app_id, $app_key);
-$result = $obj->queryPay($trade_no, $open_id);
+//$timeout 请求超时时间设置，单位 秒,可以不传，默认 1 秒
+$result = $obj->queryPay($trade_no, $open_id, $timeout);
 ```
 
 $result 返回示例

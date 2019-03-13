@@ -31,63 +31,63 @@ class GameCenter
         return md5($sign);
     }
 
-    public function getUserInfo($ticket, $platform)
+    public function getUserInfo($ticket, $platform, $timeout = 1)
     {
-        $params = [
+        $params = array(
             'app_id'   => $this->app_id,
             'platform' => $platform,
             'ticket'   => $ticket,
             'time'     => time(),
             'app_key'  => $this->app_key
-        ];
+        );
         $sign = $this->getSign($params);
         $params['sign'] = $sign;
         $url = $this->host . $this->userInfoUrl . '?' . $this->getUrlParams($params);
 
-        list($errno, $errmsg, $response) = $this->httpGet($url);
+        list($errno, $errmsg, $response) = $this->httpGet($url, $timeout);
         if ($errno != 0)
         {
-            return [
+            return array(
                 'code'        => $errno,
                 'message'     => $errmsg,
                 'showErr'     => 0,
                 'currentTime' => $params['time'],
-                'data'        => []
-            ];
+                'data'        => array()
+            );
         }
         return json_decode($response, true);
     }
 
-    public function queryPay($trade_no, $open_id)
+    public function queryPay($trade_no, $open_id, $timeout = 1)
     {
-        $params = [
+        $params = array(
             'trade_no'=> $trade_no,
             'app_id'  => $this->app_id,
             'open_id' => $open_id,
             'time'    => time(),
             'app_key' => $this->app_key
-        ];
+        );
         $sign = $this->getSign($params);
         $params['sign'] = $sign;
         $url = $this->host . $this->queryUrl . '?' . $this->getUrlParams($params);
 
-        list($errno, $errmsg, $response) = $this->httpGet($url);
+        list($errno, $errmsg, $response) = $this->httpGet($url, $timeout);
         if ($errno != 0)
         {
-            return [
+            return array(
                 'code'        => $errno,
                 'message'     => $errmsg,
                 'showErr'     => 0,
                 'currentTime' => $params['time'],
-                'data'        => []
-            ];
+                'data'        => array()
+            );
         }
         return json_decode($response, true);
     }
 
     private function getUrlParams($params)
     {
-        $_data = [];
+        $_data = array();
         foreach ($params as $k => $v) {
             $_data[] = $k . '=' . rawurlencode($v);
         }
@@ -123,6 +123,6 @@ class GameCenter
             $errmsg = curl_error($curl);
         }
         @curl_close($curl);
-        return [$errno, $errmsg, $response];
+        return array($errno, $errmsg, $response);
     }
 }
