@@ -3,16 +3,25 @@ namespace QttGame;
 
 class GameCenter
 {
+    private $app_id;
+    private $app_key;
     private $host        = 'https://newidea4-gamecenter-backend.1sapp.com';
     private $userInfoUrl = '/x/open/user/ticket';
     private $queryUrl    = '/x/pay/union/order/query';
 
+    public function __construct($app_id, $app_key)
+    {
+        $this->app_id = $app_id;
+        $this->app_key = $app_key;
+    }
+
     public function getSign($params)
     {
-        if (!isset($params['time']) || !isset($params['app_key']))
+        if (!isset($params['time']))
         {
-            throw new \Exception("缺少 time 或者 app_key ");
+            $params['time'] = time();
         }
+        $params['app_key'] = $this->app_key;
         ksort($params, SORT_NATURAL);
         $sign = '';
         foreach ($params as $k => $v) {
@@ -22,14 +31,14 @@ class GameCenter
         return md5($sign);
     }
 
-    public function getUserInfo($ticket, $platform, $app_id, $app_key)
+    public function getUserInfo($ticket, $platform)
     {
         $params = [
-            'app_id'   => $app_id,
+            'app_id'   => $this->app_id,
             'platform' => $platform,
             'ticket'   => $ticket,
             'time'     => time(),
-            'app_key'  => $app_key
+            'app_key'  => $this->app_key
         ];
         $sign = $this->getSign($params);
         $params['sign'] = $sign;
@@ -49,14 +58,14 @@ class GameCenter
         return json_decode($response, true);
     }
 
-    public function queryPay($trade_no, $open_id, $app_id, $app_key)
+    public function queryPay($trade_no, $open_id)
     {
         $params = [
             'trade_no'=> $trade_no,
-            'app_id'  => $app_id,
+            'app_id'  => $this->app_id,
             'open_id' => $open_id,
             'time'    => time(),
-            'app_key' => $app_key
+            'app_key' => $this->app_key
         ];
         $sign = $this->getSign($params);
         $params['sign'] = $sign;
