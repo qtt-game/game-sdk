@@ -1,0 +1,13 @@
+{
+    "name": "qtt/game-center",
+    "description": "game open sdk",
+    "type": "sdk",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "QttGame\\": "./src"
+        }
+    }
+}
