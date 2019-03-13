@@ -31,10 +31,6 @@ $sign = $obj->getSign($params);
 
 ```php 
 $obj = new QttGame\GameCenter($app_id, $app_key);
-$ticket = 'xxx';
-$platform = 'xxx';
-$app_id = 'xxx';
-$app_key = 'xxx';
 $result = $obj->getUserInfo($ticket, $platform);
 ```
 
@@ -58,10 +54,6 @@ $result 返回示例
 
 ```php
 $obj = new QttGame\GameCenter($app_id, $app_key);
-$trade_no = 'xxx';
-$open_id = 'xxx';
-$app_id = 'xxx';
-$app_key = 'xxx';
 $result = $obj->queryPay($trade_no, $open_id);
 ```
 
