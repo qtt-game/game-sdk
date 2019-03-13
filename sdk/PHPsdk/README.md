@@ -18,13 +18,11 @@
 #### 获取签名
 
 ```php
-$obj = new QttGame\GameCenter();
+$obj = new QttGame\GameCenter($app_id, $app_key);
 $params = [
     'k1' => 'v1',  //业务参数
     'k2' => 'v2',   //业务参数
     'k3' => 'v3',   //业务参数 
-    'time' => time(),  //必填，当前时间戳
-    'app_key' => 'xxx'   //必填，app_key
 ];
 $sign = $obj->getSign($params);
 ```
@@ -32,12 +30,12 @@ $sign = $obj->getSign($params);
 #### 获取用户信息
 
 ```php 
-$obj = new QttGame\GameCenter();
+$obj = new QttGame\GameCenter($app_id, $app_key);
 $ticket = 'xxx';
 $platform = 'xxx';
 $app_id = 'xxx';
 $app_key = 'xxx';
-$result = $obj->getUserInfo($ticket, $platform, $app_id, $app_key);
+$result = $obj->getUserInfo($ticket, $platform);
 ```
 
 $result 返回示例
@@ -58,13 +56,13 @@ $result 返回示例
 
 #### 查询订单状态
 
-```json
-$obj = new QttGame\GameCenter();
+```php
+$obj = new QttGame\GameCenter($app_id, $app_key);
 $trade_no = 'xxx';
 $open_id = 'xxx';
 $app_id = 'xxx';
 $app_key = 'xxx';
-$result = $obj->queryPay($trade_no, $open_id, $app_id, $app_key);
+$result = $obj->queryPay($trade_no, $open_id);
 ```
 
 $result 返回示例
