@@ -3,4 +3,6 @@
 ## 接入流程简介
 ![流程简介](/out/1.png "流程简介")
 ###目前已经支持JS、PHP 服务端SDK，其它语言版本会陆续推出
- 
+###SDK下载地址: 
+https://github.com/qtt-game/game-sdk/tree/master/sdk/
+###未提供SDK的语言可继续使用API调用获取用户信息
