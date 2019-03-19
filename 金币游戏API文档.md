@@ -7,6 +7,8 @@
 
 请求方式 ：POST
 
+提交数据方式 ：x-www-form-urlencoded，不支持json
+
 | key       | 必选 | 类型   | 说明         |
 | :-------- | :--- | :----- | ------------ |
 | app_id    | true | string | 项目 id      |
@@ -36,6 +38,8 @@
 地址 ：/x/open/coin/sub
 
 请求方式 ：POST
+
+提交数据方式 ：x-www-form-urlencoded，不支持json
 
 | key       | 必选 | 类型   | 说明                       |
 | :-------- | :--- | :----- | -------------------------- |
