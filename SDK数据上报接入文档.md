@@ -48,7 +48,7 @@ qttGame.addNewRole({gameRole:'大乔',extend_info:{level:'10'}})
 qttGame.addNewUser({userName:'趣友30001',extend_info:{age:'18'}})
 ```
 
-3.用户游戏信息
+4.用户游戏信息
 
 ```
 /**
@@ -61,7 +61,7 @@ qttGame.addNewUser({userName:'趣友30001',extend_info:{age:'18'}})
 qttGame.userInfo({role:'孙悟空',region:'区域1',level:'100',extend_info:{age:'18'}})
 ```
 
-3.游戏异常
+5.游戏异常
 
 ```
 /**
