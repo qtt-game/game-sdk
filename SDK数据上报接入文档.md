@@ -70,5 +70,5 @@ qttGame.userInfo({role:'孙悟空',region:'区域1',level:'100',extend_info:{age
 
 **/
 // 示例
-qttGame.userInfo({message:'验证失败',extend_info:{code:'-1'}})
+qttGame.abnormalGame({message:'验证失败',extend_info:{code:'-1'}})
 ```
