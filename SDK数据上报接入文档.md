@@ -62,8 +62,8 @@ qttGame.addNewUser({user_name:'趣友30001',game_region:'区域2',extend_info:{a
 // 示例
 qttGame.userInfo({role:'孙悟空',region:'区域1',level:'100',extend_info:{age:'18'}})
 
-5.点击支付 集成在
-
+```
+5.点击支付 集成在qttGame.pay()里面  如果想额外多传一些信息 就直接加在ext里面即可
 ```
 /**
 @param money { String} [必填] 多少钱
@@ -71,6 +71,7 @@ qttGame.userInfo({role:'孙悟空',region:'区域1',level:'100',extend_info:{age
 **/
 // 示例
 qttGame.pay({money:'300'})
+
 ```
 
 5.游戏异常
