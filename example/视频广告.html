@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>视频广告</title>
+  <script type="text/javascript" src="//newidea4-gamecenter-frontend.1sapp.com/sdk/prod/h5.v1.0.0.js"></script>
+</head>
+<body>
+<div id="test2"></div>
+<script>
+  qttGame.cpcAd({
+    aid: '12345',
+    container: 'test2',
+    adType: 'video',
+    rewardTime: 15,
+    endedCallback: function (e) {
+      console.log('播放完毕，领取奖励。')
+    }
+  })
+</script>
+</body>
+</html>
