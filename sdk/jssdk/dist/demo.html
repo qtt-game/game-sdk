@@ -15,6 +15,9 @@
     <button onclick="queryOrder()" type="button" style="width:100%;height:50px;margin-top:10px">
         queryOrder
     </button>
+    <button onclick="coinAdd()" type="button" style="width:100%;height:50px;margin-top:10px">
+        coinAdd
+    </button>
     </br></br>
     输出：
     <pre id="output" style="white-space: pre-wrap;word-wrap: break-word;"></pre>
@@ -40,6 +43,33 @@
             var open_id = "xxx";
             var trade_no = "xxx";
             QTTGame.queryOrder(appkey, app_id, open_id, trade_no).then(res => {
+                document.getElementById("output").innerHTML = JSON.stringify(res)
+            }).catch(err => {
+                document.getElementById("output").innerHTML = JSON.stringify(err)
+            })
+        }
+        function coinAdd() {
+            document.getElementById("output").innerHTML = "";
+            var appkey = "xxx";
+            var app_id = "xxx";
+            var open_id = "xxx";
+            var coin_num = "1";
+            var trade_no = "xxx";
+            const a = QTTGame.coinAdd(appkey, app_id, open_id,coin_num, trade_no)
+            a.then(res => {
+                document.getElementById("output").innerHTML = JSON.stringify(res)
+            }).catch(err => {
+                document.getElementById("output").innerHTML = JSON.stringify(err)
+            })
+        }
+        function coinSub() {
+            document.getElementById("output").innerHTML = "";
+            var appkey = "xxx";
+            var app_id = "xxx";
+            var open_id = "xxx";
+            var coin_num = "1";
+            var trade_no = "xxx";
+            QTTGame.coinSub(appkey, app_id, open_id, coin_num, trade_no).then(res => {
                 document.getElementById("output").innerHTML = JSON.stringify(res)
             }).catch(err => {
                 document.getElementById("output").innerHTML = JSON.stringify(err)

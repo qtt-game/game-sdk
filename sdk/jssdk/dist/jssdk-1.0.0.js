@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -80,8 +80,8 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-var bind = __webpack_require__(4);
-var isBuffer = __webpack_require__(3);
+var bind = __webpack_require__(6);
+var isBuffer = __webpack_require__(4);
 
 /*global toString:true*/
 
@@ -407,10 +407,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(6);
+    adapter = __webpack_require__(8);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(6);
+    adapter = __webpack_require__(8);
   }
   return adapter;
 }
@@ -481,10 +481,44 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.genSign = genSign;
+
+var _md = __webpack_require__(14);
+
+var _md2 = _interopRequireDefault(_md);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function genSign(params, appKey) {
+    delete params.sign;
+    params.app_key = appKey;
+    var keysArr = [];
+    for (var key in params) {
+        keysArr.push(key);
+    }
+    keysArr.sort();
+    var keys = '';
+    keysArr.forEach(function (e) {
+        keys += e;
+        keys += params[e];
+    });
+    delete params.app_key;
+    var sign = (0, _md2.default)(keys);
+    return sign;
+}
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 var charenc = {
@@ -523,7 +557,7 @@ module.exports = charenc;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 /*!
@@ -550,7 +584,13 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(17);
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -568,7 +608,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -758,7 +798,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -769,7 +809,7 @@ var settle = __webpack_require__(20);
 var buildURL = __webpack_require__(22);
 var parseHeaders = __webpack_require__(23);
 var isURLSameOrigin = __webpack_require__(24);
-var createError = __webpack_require__(7);
+var createError = __webpack_require__(9);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(25);
 
 module.exports = function xhrAdapter(config) {
@@ -943,10 +983,10 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -971,7 +1011,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -983,7 +1023,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1009,21 +1049,25 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _api = __webpack_require__(11);
+var _api = __webpack_require__(13);
+
+var _coin = __webpack_require__(34);
 
 module.exports = {
     getUserInfo: _api.getUserInfo,
-    queryOrder: _api.queryOrder
+    queryOrder: _api.queryOrder,
+    coinAdd: _coin.coinAdd,
+    coinSub: _coin.coinSub
 };
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1033,9 +1077,9 @@ exports.__esModule = true;
 exports.getUserInfo = getUserInfo;
 exports.queryOrder = queryOrder;
 
-var _sign = __webpack_require__(12);
+var _sign = __webpack_require__(2);
 
-var _http = __webpack_require__(15);
+var _http = __webpack_require__(16);
 
 function getUserInfo(appkey, app_id, ticket, platform) {
     var url = "https://newidea4-gamecenter-backend.1sapp.com/x/open/user/ticket";
@@ -1062,48 +1106,14 @@ function queryOrder(appkey, app_id, open_id, trade_no) {
 }
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.genSign = genSign;
-
-var _md = __webpack_require__(13);
-
-var _md2 = _interopRequireDefault(_md);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function genSign(params, appKey) {
-    delete params.sign;
-    params.app_key = appKey;
-    var keysArr = [];
-    for (var key in params) {
-        keysArr.push(key);
-    }
-    keysArr.sort();
-    var keys = '';
-    keysArr.forEach(function (e) {
-        keys += e;
-        keys += params[e];
-    });
-    delete params.app_key;
-    var sign = (0, _md2.default)(keys);
-    return sign;
-}
-
-/***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(){
-  var crypt = __webpack_require__(14),
-      utf8 = __webpack_require__(2).utf8,
-      isBuffer = __webpack_require__(3),
-      bin = __webpack_require__(2).bin,
+  var crypt = __webpack_require__(15),
+      utf8 = __webpack_require__(3).utf8,
+      isBuffer = __webpack_require__(4),
+      bin = __webpack_require__(3).bin,
 
   // The core
   md5 = function (message, options) {
@@ -1262,7 +1272,7 @@ function genSign(params, appKey) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 (function() {
@@ -1364,7 +1374,7 @@ function genSign(params, appKey) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1373,7 +1383,7 @@ function genSign(params, appKey) {
 exports.__esModule = true;
 exports.get = undefined;
 
-var _axios = __webpack_require__(16);
+var _axios = __webpack_require__(5);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -1386,12 +1396,6 @@ var get = exports.get = function get(url, opts) {
 };
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(17);
-
-/***/ }),
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1399,7 +1403,7 @@ module.exports = __webpack_require__(17);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(4);
+var bind = __webpack_require__(6);
 var Axios = __webpack_require__(18);
 var defaults = __webpack_require__(1);
 
@@ -1434,9 +1438,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(9);
+axios.Cancel = __webpack_require__(11);
 axios.CancelToken = __webpack_require__(32);
-axios.isCancel = __webpack_require__(8);
+axios.isCancel = __webpack_require__(10);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -1562,7 +1566,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(7);
+var createError = __webpack_require__(9);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1997,7 +2001,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(29);
-var isCancel = __webpack_require__(8);
+var isCancel = __webpack_require__(10);
 var defaults = __webpack_require__(1);
 var isAbsoluteURL = __webpack_require__(30);
 var combineURLs = __webpack_require__(31);
@@ -2157,7 +2161,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(9);
+var Cancel = __webpack_require__(11);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -2247,6 +2251,103 @@ module.exports = function spread(callback) {
   };
 };
 
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.coinSub = exports.coinAdd = undefined;
+
+var _axios = __webpack_require__(5);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _sign = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// 环境变量
+
+var domain = "https://newidea4-gamecenter-backend.1sapp.com";
+
+var urls = {
+  coinAdd: domain + "/x/open/coin/add", // 金币增加
+  coinSub: domain + "/x/open/coin/sub" // 扣减金币
+
+  /**
+   * 金币操作
+   */
+
+};var _coinOperation = function _coinOperation(api, appKey, app_id, open_id, coin_num, trade_no) {
+  var _appKey = appKey || "";
+  var _appId = app_id || "";
+  var _openId = open_id || "";
+  var _coinNum = coin_num;
+  var _tradeNo = trade_no || "";
+
+  if (!_coinNum || Number.isNaN(_coinNum) || _coinNum < 0) {
+    var tip = "jssdk error: 金币数额必须是不小于零的数字";
+    console.error(tip);
+    return Promise.reject(tip);
+  }
+  var params = {
+    app_id: _appId,
+    open_id: _openId,
+    coin_num: _coinNum,
+    trade_no: _tradeNo
+  };
+  var flag = true;
+  Object.entries(Object.assign(params, { appKey: _appKey })).forEach(function (_ref) {
+    var k = _ref[0],
+        v = _ref[1];
+
+    if (["open_id", "coin_num", "trade_no", "sign"].includes(k) && !v) {
+      console.error("jssdk error: " + k + " \u4E0D\u80FD\u4E3A\u7A7A\u3002");
+      flag = false;
+    }
+  });
+
+  var time = Math.floor(Date.now() / 1000);
+  var sign = (0, _sign.genSign)(Object.assign(params, { time: time }), _appKey);
+  if (!flag) return Promise.reject("jssdk error: 存在空置必填参数");
+  // 发送请求
+  var fd = new FormData();
+  Object.entries(Object.assign(params, { sign: sign })).forEach(function (_ref2) {
+    var k = _ref2[0],
+        v = _ref2[1];
+
+    fd.append(k, v);
+  });
+  return _axios2.default.post(api, fd, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    timeout: 2000
+  }).then(function (res) {
+    console.log(res);
+    var resData = res.data || {};
+    if (resData.code === 0) {
+      // 扣减成功
+      return Promise.resolve(resData);
+    }
+    // 扣减失败
+    return Promise.reject(resData);
+  });
+};
+
+// 添加金币
+var coinAdd = exports.coinAdd = function coinAdd(appKey, app_id, open_id, coin_num, trade_no) {
+  return _coinOperation(urls.coinAdd, appKey, app_id, open_id, coin_num, trade_no);
+};
+
+// 扣减金币
+var coinSub = exports.coinSub = function coinSub(appKey, app_id, open_id, coin_num, trade_no) {
+  return _coinOperation(urls.coinSub, appKey, app_id, open_id, coin_num, trade_no);
+};
 
 /***/ })
 /******/ ]);
