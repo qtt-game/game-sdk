@@ -39,7 +39,7 @@ const QTTGame = require("./dist/jssdk-1.0.0");
 var appkey = "xxx";
 var app_id = "xxx";
 var open_id = "xxx";
-var coin_num = xxx; // 大于0的数字
+var coin_num = xxx; // 不小于0的数字
 var trade_no = "xxx";
 
 // 参数均为必填
@@ -60,7 +60,7 @@ const QTTGame = require("./dist/jssdk-1.0.0");
 var appkey = "xxx";
 var app_id = "xxx";
 var open_id = "xxx";
-var coin_num = xxx; // 大于0的数字
+var coin_num = xxx; // 不小于0的数字
 var trade_no = "xxx";
 
 // 参数均为必填
