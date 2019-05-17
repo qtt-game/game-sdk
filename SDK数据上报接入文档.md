@@ -57,11 +57,12 @@ qttGame.addNewUser({user_name:'趣友30001',game_region:'区域2',extend_info:{a
 @param role { String} [必填] 角色名称
 @param region { String} [必填] 游戏区
 @param level { int} [必填] 等级
+@param ce { int} [选填] 战斗力
+@param round { int} [选填] 局数
 @param extend_info  [选填] json对象 {}
 **/
 // 示例
-qttGame.userInfo({role:'孙悟空',region:'区域1',level:'100',extend_info:{age:'18'}})
-
+qttGame.userInfo({role:'孙悟空',region:'区域1',level:'100',ce:'1000000',round:'57',extend_info:{age:'18'}})
 ```
 5.点击支付 集成在qttGame.pay()里面  如果想额外多传一些信息 就直接加在ext里面即可
 ```
