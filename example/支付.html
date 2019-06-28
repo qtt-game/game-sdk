@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>支付</title>
+  <script type="text/javascript" src="//newidea4-gamecenter-frontend.1sapp.com/sdk/prod/h5.v1.0.0.js"></script>
+</head>
+<body>
+<button onclick="pay()" style="font-size: 20rem;">支付</button>
+<script>
+  /**
+   @param money {Number / String} [必填] 充值金额，单位：分，100分 = 1元。
+   @param notifyUrl {String} [必填] 回调地址，请注意，这个是开发商的充值回调地址
+   @param openId {String} [必填] openId
+   @param platform {String} [必填] 平台 目前只有: qtt
+   @param land {Sring} [0|1][必填] 游戏方向，0=竖屏，1=横屏
+   @param gameName {String} [选填] 游戏名
+   @param appId {String} [选填] appId
+   @param ext {String} [选填] 扩展信息，json格式，比如充值的游戏区服等信息，透明转发
+   **/
+  // 示例
+  function pay () {
+    qttGame.pay({openId: '3xg4PoJQK4E', money: 1, appId: '3x8z92UnQqG', notifyUrl: 'https://qutoutiao.net', platform: 'qtt', land: 0, ext: '{}'})
+  }
+</script>
+</body>
+</html>
