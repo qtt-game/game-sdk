@@ -3,10 +3,10 @@
 
 ### 引入 sdk
 
-#### 生产环境 
+在html头部引入以下`script`标签
 
 ```
-<script type="text/javascript" src="//newidea4-gamecenter-frontend.1sapp.com/sdk/prod/h5.v1.0.0.js"></script>
+<script type="text/javascript" src="//newidea4-gamecenter-frontend.1sapp.com/sdk/uni_sdk/h5.v1.0.0.js?spread=required"></script>
 ```
 
 调用示例：
