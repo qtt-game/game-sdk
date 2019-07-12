@@ -21,19 +21,17 @@
 
 返回示例：
 
-```
+```json
 {
-  "code": 0,
-  "message": "",
-  "showErr": 0,
-  "currentTime": 0,
-  "data": {
-   
-  }
+    "code":0,
+    "message":"",
+    "showErr":0,
+    "currentTime":0,
+    "data":{
+
+    }
 }
 ```
-
-
 
 ## 扣减金币
 
@@ -53,14 +51,14 @@
 
 返回示例
 
-```
+```json
 {
-  "code": 0,
-  "message": "",
-  "showErr": 0,
-  "currentTime": 0,
-  "data": {
-   
-  }
+    "code":0,
+    "message":"",
+    "showErr":0,
+    "currentTime":0,
+    "data":{
+
+    }
 }
 ```
