@@ -8,15 +8,17 @@
 <body>
 <div id="test2"></div>
 <script>
-  qttGame.cpcAd({
-    aid: '7783053',
-    container: 'test2',
-    adType: 'video',
-    rewardTime: 15,
-    endedCallback: function (e) {
-      console.log('播放完毕，领取奖励。')
-    }
-  })
+  window.onload = function () {
+    qttGame.cpcAd({
+      aid: '7783053',
+      container: 'test2',
+      adType: 'video',
+      rewardTime: 15,
+      endedCallback: function (e) {
+        console.log('播放完毕，领取奖励。')
+      }
+    })
+  }
 </script>
 </body>
 </html>
