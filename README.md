@@ -16,12 +16,12 @@
 ![流程简介](/out/1.png "流程简介")
 ### 目前已经支持JS、PHP 服务端SDK，其它语言版本会陆续推出
 
-### SDK下载地址: 
+### SDK下载地址:
 https://github.com/qtt-game/game-sdk/tree/master/sdk/
 #### 未提供SDK的语言可继续使用API调用获取用户信息
 
 ## <font color=#FF0000>*注意：</font>
 ### 游戏中心接入文档有问题可咨询以下人员：
 1. 商务洽谈，姜超，微信号：jiangchao900626，QQ：361505385
-2. 开发对接，<font color=#FF0000>有问题请在QQ或微信群联系土拨鼠 微信cort-xie qq:691118998，游戏的 app_id （渠道参数）和通信的 app_key （加密参数）可通过“app_id、app_key自主获取”自主获取</font>
+2. 开发对接，<font color=#FF0000>有问题请在微信群联系 (Steven 微信15102180973)，游戏的 app_id （渠道参数）和通信的 app_key （加密参数）可通过“app_id、app_key自主获取”自主获取</font>
 3. 按照本文档的说明，打通两边账户、充值
