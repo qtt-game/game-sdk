@@ -3,34 +3,6 @@
 # 金币操作
 注意：签名算法、环境地址可在[趣头条游戏中心接入文档](趣头条游戏中心接入文档.md)查看！
 
-## 金币余额
-
-地址 ： /x/open/coin/balance
-
-请求方式 ：POST
-
-提交数据方式 ：x-www-form-urlencoded，不支持json
-
-| key       | 必选 | 类型   | 说明         |
-| :-------- | :--- | :----- | ------------ |
-| app_id    | true | string | 项目 id      |
-| open_id    | true | string | 用户在当前项目内的唯一标示       |
-| sign      | true | string | 签名                       |
-
-返回示例：
-
-```json
-{
-    "code":0,
-    "message":"",
-    "showErr":0,
-    "currentTime":0,
-    "data":{
-        "coin_balance":10000
-    }
-}
-```
-
 ## 增加金币
 
 地址 ： /x/open/coin/add
@@ -60,8 +32,6 @@
     }
 }
 ```
-
-
 
 ## 扣减金币
 
