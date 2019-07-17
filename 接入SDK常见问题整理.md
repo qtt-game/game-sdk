@@ -14,7 +14,7 @@
 <script type="text/javascript" src="//newidea4-gamecenter-frontend.1sapp.com/sdk/prod/h5.v1.0.0.js?spread=required"></script>
 ```
 
-> Tip: 务必将该标签放在HTML靠前位置加载, **禁止**动态加载, 否则可能出现`qttGame is not defined`的错误警告
+> Tip: 务必将该标签放在HTML靠前位置加载, **禁止**动态加载, 务必在SDK加载完成后再调用`qttGame`的方法,否则可能出现`qttGame is not defined`的错误警告
 
 ### 浏览器中调试
 
