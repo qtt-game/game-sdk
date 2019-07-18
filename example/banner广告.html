@@ -8,16 +8,12 @@
 <body>
 <div id="test2"></div>
 <script>
+  /*
+   * 需要在地址栏URL后添加?app_id=xxx&_NO_BRIDGE_=1方可在浏览器中调试
+   * 详见文档(https://github.com/qtt-game/game-sdk/blob/master/%E6%8E%A5%E5%85%A5SDK%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86.md)
+  */
   window.onload = function () {
-    qttGame.cpcAd({
-      aid: '7783053',
-      container: 'test2',
-      adType: 'video',
-      rewardTime: 15,
-      endedCallback: function (e) {
-        console.log('播放完毕，领取奖励。')
-      }
-    })
+    qttGame.showBanner()
   }
 </script>
 </body>
