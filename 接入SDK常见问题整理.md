@@ -20,7 +20,7 @@
 ### 浏览器中调试
 
 1. 打开打开chrome的`Toggle device toolbar`
-2. 在游戏地址后面加queryString`?app_id=xxxxx&_NO_BRIDGE_=1`
+2. 在游戏地址后面加queryString`?app_id=xxxxx&_NO_BRIDGE_=true`
 3. 刷新页面
 
 > queryString加`app_id`保证 SDK 正确识别游戏,`_NO_BRIDGE_`使浏览器忽略桥接
