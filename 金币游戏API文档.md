@@ -70,3 +70,31 @@
     }
 }
 ```
+
+## 查询金币
+
+地址 ：/x/open/coin/balance
+
+请求方式 ：POST
+
+提交数据方式 ：x-www-form-urlencoded，不支持json
+
+| key       | 必选 | 类型   | 说明                       |
+| :-------- | :--- | :----- | --------------------------|
+| app_id    | true | string | 项目 id                    |
+| open_id    | true | string | 用户在当前项目内的唯一标示    |
+| sign      | true | string | 签名                       |
+
+返回示例
+
+```json
+{
+    "code":0,
+    "message":"",
+    "showErr":0,
+    "currentTime":0,
+    "data":{
+		"coin_balance":10000
+    }
+}
+```
