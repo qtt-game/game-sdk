@@ -94,7 +94,7 @@
     "showErr":0,
     "currentTime":0,
     "data":{
-		"coin_balance":10000
+	"coin_balance":10000
     }
 }
 ```
