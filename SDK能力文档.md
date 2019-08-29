@@ -8,12 +8,25 @@ SDK 提供了获取一些 H5 api 中读取不到的信息的能力
 
 1. [接入 SDK](./SDK接入步骤.md#引入_sdk)
 2. 使用能力
+---
+## 列表：
+
+- qttGame.systemInfo
+- qttGame.openDialogMission
 
 ---
+## API
 
+### - qttGame.systemInfo
+
+#### 描述：
 SDK 在`qttGame`对象的`systemInfo`属性上暴露了一些设备相关的信息
 
-`qttGame.systemInfo <Object>`
+#### 属性：
+
+```javascript
+qttGame.systemInfo <Object>
+```
 
 'qttgame.systemInfo'的属性：
 
@@ -25,7 +38,7 @@ SDK 在`qttGame`对象的`systemInfo`属性上暴露了一些设备相关的信�
 | network   | String  | ''     | 当前网络状态   |
 | isAndroid | Boolean | false  | 是否是安卓系统 |
 
-Example:
+#### Example:
 
 ```javascript
 const {
@@ -43,3 +56,27 @@ const {
   // 'OPPO'
 ```
 ----
+
+### - qttGame.openDialogMission
+
+#### 描述:
+
+##### 效果： 执行后会弹出SDK悬浮窗并进入任务tab
+
+- 没有悬浮窗， 或者没有任务那个tab，或者如果是精简的悬浮窗，那么调用没反应，
+同时控制台console会出一行提示：
+  > ```javascript
+  > "[qtt game sdk tip]: [qttGame.openDialogMission] 不符合任务弹出条件， 不弹出"
+  >   ```
+#### 属性:
+
+```javascript
+qttGame.openDialogMission void<function>
+```
+
+#### example:
+
+```javascript
+qttGame.openDialogMission();
+```
+---
