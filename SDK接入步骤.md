@@ -13,7 +13,7 @@
 **在HTML头部引入以下标签**
 
 ```HTML
-<script type="text/javascript" src="//newidea4-gamecenter-frontend.1sapp.com/sdk/prod/h5.v1.0.0.js?spread=required"></script>
+<script type="text/javascript" src="//newidea4-gamecenter-frontend.1sapp.com/sdk/prod/h5.v1.0.0.js?spread=required" crossorigin="anonymous"></script>
 ```
 ---
 
